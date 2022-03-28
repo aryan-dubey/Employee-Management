@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cg.camp.employeemanagementapi.domain.Department;
+import cg.camp.employeemanagementapi.exception.DepartmentIdException;
 import cg.camp.employeemanagementapi.exception.DepartmentNameException;
 import cg.camp.employeemanagementapi.repository.DepartmentRepository;
 import cg.camp.employeemanagementapi.service.DepartmentService;
@@ -35,7 +36,13 @@ public class DepartmentServiceImpl implements DepartmentService{
 
 	@Override
 	public void delete(Long deptId) {
+		try {
 		deptRepo.deleteById(deptId);
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			throw new DepartmentIdException("Depaartment Id "+deptId+" Doesnt Exist");
+		}
 	}
 
 	@Override
