@@ -21,7 +21,7 @@ import cg.camp.employeemanagementapi.domain.Department;
 import cg.camp.employeemanagementapi.service.DepartmentService;
 import cg.camp.employeemanagementapi.serviceimpl.MapValidationErrorService;
 @RestController
-@RequestMapping("/api/employeemanagement")
+@RequestMapping("/api/employeemanagement/department")
 public class DepartmentController {
 	@Autowired
 	private DepartmentService deptService;
