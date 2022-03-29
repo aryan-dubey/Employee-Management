@@ -1,11 +1,14 @@
 package cg.camp.employeemanagementapi.domain;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 
 
@@ -17,6 +20,27 @@ public class Department {
 	@NotBlank(message="department name required")
 	@Column(unique = true)
 	private String deptName;
+/*
+    @OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	private Compliance compliance;
+	public Compliance getCompliance() {
+		return compliance;
+	}
+	public void setCompliance(Compliance compliance) {
+		this.compliance = compliance;
+	}
+	
+	@OneToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+	private Status status;
+	
+	public Status getStatus() {
+		return status;
+	}
+	public void setStatus(Status status) {
+		this.status = status;
+	}	
+
+ */
 
 	public Long getDeptId() {
 		return deptId;
