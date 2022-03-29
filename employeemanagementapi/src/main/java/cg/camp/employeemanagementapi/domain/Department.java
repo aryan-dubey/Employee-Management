@@ -17,7 +17,7 @@ public class Department {
 	@NotBlank(message="department name required")
 	@Column(unique = true)
 	private String deptName;
-	
+
 	public Long getDeptId() {
 		return deptId;
 	}

@@ -14,7 +14,7 @@ import cg.camp.employeemanagementapi.domain.Login;
 import cg.camp.employeemanagementapi.service.LoginService;
 
 @RestController
-@RequestMapping("/api/employees/login")
+@RequestMapping("/api/user/login")
 public class LoginController {
 	
 	
