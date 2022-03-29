@@ -13,8 +13,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class Employee {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long userId;
+	@Column(updatable=false,unique=true)
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private long userId;
 	
 	@NotBlank(message="First Name is required")
 	private String firstName;
@@ -22,14 +23,26 @@ public class Employee {
 	@NotBlank(message="Last Name is required")
 	private String lastName;
 	
-	//@JsonFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date dob;
 	
 	@NotBlank(message="Email is required")
 	@Column(updatable=false,unique=true)
 	private String email;
 	
-	//private Department department;
+	/*one to one with User  
+	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL,mappedBy= "employee")
+	
+
+	private Department department;
+
+public Department getDepartment() {
+	return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}*/
 	
 	public Employee() {
 		

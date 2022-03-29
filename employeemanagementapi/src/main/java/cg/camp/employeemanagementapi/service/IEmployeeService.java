@@ -5,6 +5,10 @@ import cg.camp.employeemanagementapi.domain.Employee;
 public interface IEmployeeService {
 	
 	public Employee addEmployee(Employee emp);
-	//public void deleteEmployee(long id);
+	public Iterable<Employee> getallEmployees();
+	public Employee getEmployeeByuserId(long uid);
+	public long employeeCount();
+	public void deleteEmployeeById(long uid);
+	public void deleteAllEmp();
 	
 }

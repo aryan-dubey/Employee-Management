@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import cg.camp.employeemanagementapi.domain.Employee;
 import cg.camp.employeemanagementapi.exception.EmployeeEmailException;
+import cg.camp.employeemanagementapi.exception.EmployeeIdException;
 import cg.camp.employeemanagementapi.repository.IEmployeeRepository;
 import cg.camp.employeemanagementapi.service.IEmployeeService;
 
@@ -23,11 +24,53 @@ public class IEmployeeServiceImpl implements IEmployeeService{
 		}
 	}
 
-	/*@Override
-	public void deleteEmployee(long id) {
-		iemployeeRepository.deleteById(id);
+
+	@Override
+	public Iterable<Employee> getallEmployees() 
+	{
 		
-	}*/
+		return iemployeeRepository.findAll();
+	}
+
+	public Employee getEmployeeByuserId(long uid) 
+	{
+		Employee employee=iemployeeRepository.findById(uid);
+		if(employee==null) 
+		{
+			throw new EmployeeIdException("Employee id :"+uid+ " does not exists");
+		}
+		return employee;
+	}
+
+	@Override
+	public long employeeCount() 
+	{
+		long count=iemployeeRepository.count();
+		return count;
+	}
+
+	@Override
+	public void deleteEmployeeById(long uid) 
+	{
+		Employee employee=iemployeeRepository.findById(uid);
+		if(employee==null) 
+		{
+			throw new EmployeeIdException("Employee id :"+uid+ " does not exists");
+		}
+		iemployeeRepository.deleteById(uid);
+		
+	}
+
+	@Override
+	public void deleteAllEmp() 
+	{
+		if(iemployeeRepository.count()==0)
+		{
+			throw new EmployeeIdException("No employees are present");
+		}
+		iemployeeRepository.deleteAll();
+		
+	}
 	
 
 }

@@ -7,6 +7,8 @@ import cg.camp.employeemanagementapi.domain.Employee;
 
 @Repository
 public interface IEmployeeRepository extends CrudRepository<Employee,Long>{
-	
+
+	Employee findById(long id);
+	Employee deleteById(long  id);
 
 }
