@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
+
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -16,21 +16,21 @@ public class Status {
 	@Id
 	@Column(updatable=false,unique=true)
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int statusId;
+	private long statusId;
 
-	@NotBlank(message="comments are required")
+	//@NotBlank(message="comments are required")
 	private String comments;
 
-	@NotBlank(message="Details are required")
+	//@NotBlank(message="Details are required")
 	private String details;
 	
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private LocalDate createDate;
 	
 	@Column(updatable=false,unique=true)
-	private int userId;
+	private long userId;
 	@Column(updatable=false,unique=true)
-	private int complianceId;
+	private long complianceId;
 	
 	private Department department;
 	
@@ -56,10 +56,10 @@ public class Status {
 	}	
 
  */
-	public int getStatusId() {
+	public long getStatusId() {
 		return statusId;
 	}
-	public void setStatusId(int statusId) {
+	public void setStatusId(long statusId) {
 		this.statusId = statusId;
 	}
 	public String getComments() {
@@ -80,16 +80,16 @@ public class Status {
 	public void setCreateDate(LocalDate createDate) {
 		this.createDate = createDate;
 	}
-	public int getUserId() {
+	public long getUserId() {
 		return userId;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
-	public int getComplianceId() {
+	public long getComplianceId() {
 		return complianceId;
 	}
-	public void setComplianceId(int complianceId) {
+	public void setComplianceId(long complianceId) {
 		this.complianceId = complianceId;
 	}
 	public Department getDepartment() {
