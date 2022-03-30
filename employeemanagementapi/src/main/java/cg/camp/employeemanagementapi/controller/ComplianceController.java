@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import cg.camp.employeemanagementapi.domain.Compliance;
+import cg.camp.employeemanagementapi.domain.Status;
 import cg.camp.employeemanagementapi.service.IComplianceService;
 import cg.camp.employeemanagementapi.serviceimpl.MapValidationErrorService;
 
@@ -24,6 +25,7 @@ public class ComplianceController {
    
 	@Autowired
 	private IComplianceService complianceService;
+	
 	
 	@Autowired
 	MapValidationErrorService mapValidationErrorService;
@@ -52,4 +54,20 @@ public class ComplianceController {
 		  Compliance compliance = complianceService.findComplianceByComplianceId(complianceId);
 		  return new ResponseEntity<Compliance>(compliance, HttpStatus.ACCEPTED);
 	  }
+	  
+	  @PostMapping("")
+	  public ResponseEntity<?> addStatusReport(@RequestBody Status st )
+	  {
+		  Status sta=complianceService.createStatusReport(st);
+		  return new ResponseEntity<Status>(sta, HttpStatus.CREATED);
+	  }
+	  
+	  @GetMapping("/ListAll")
+	  public Iterable<Status> showAllStatusReport()
+	  {
+		  return complianceService.getAllStatusReport();
+	  }
+	  
+	  
+	  
 }
