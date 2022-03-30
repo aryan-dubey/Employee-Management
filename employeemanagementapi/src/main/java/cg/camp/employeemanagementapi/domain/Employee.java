@@ -1,11 +1,15 @@
 package cg.camp.employeemanagementapi.domain;
 
 import java.util.Date;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -30,19 +34,6 @@ public class Employee {
 	@Column(updatable=false,unique=true)
 	private String email;
 	
-	/*one to one with User  
-	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL,mappedBy= "employee")
-	
-
-	private Department department;
-
-public Department getDepartment() {
-	return department;
-	}
-
-	public void setDepartment(Department department) {
-		this.department = department;
-	}*/
 	
 	public Employee() {
 		
@@ -79,5 +70,25 @@ public Department getDepartment() {
 		this.email = email;
 	}
 	
+	/*one to one with Login  
+	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	private Login login;
+
+	public Login getLogin() {
+		return login;
+	}
+
+	public void setLogin(Login login) {
+		this.login = login;
+	}
+	
+	//private Department department;
+//public Department getDepartment() {
+	//return department;
+	//}
+
+	//public void setDepartment(Department department) {
+		//this.department = department;
+	//}*/
 	
 }

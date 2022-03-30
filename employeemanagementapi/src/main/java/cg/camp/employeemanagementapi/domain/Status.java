@@ -2,35 +2,39 @@ package cg.camp.employeemanagementapi.domain;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Status {
+	@Id
+	@Column(updatable=false,unique=true)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int statusId;
+
+	@NotBlank(message="comments are required")
 	private String comments;
+
+	@NotBlank(message="Details are required")
 	private String details;
+	
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private LocalDate createDate;
+	
+	@Column(updatable=false,unique=true)
 	private int userId;
+	@Column(updatable=false,unique=true)
 	private int complianceId;
-	private Department department;
 	
+	//private Department department;
 	
-	
-//	public Status(int statusId, String comments, String details, LocalDate createDate, int userId, int complianceId,
-//			Department department) {
-//		super();
-//		this.statusId = statusId;
-//		this.comments = comments;
-//		this.details = details;
-//		this.createDate = createDate;
-//		this.userId = userId;
-//		this.complianceId = complianceId;
-//		this.department = department;
-//	}
-	
-	
-	
-	
+
 	public int getStatusId() {
 		return statusId;
 	}
@@ -67,18 +71,12 @@ public class Status {
 	public void setComplianceId(int complianceId) {
 		this.complianceId = complianceId;
 	}
-	public Department getDepartment() {
+	/*public Department getDepartment() {
 		return department;
 	}
 	public void setDepartment(Department department) {
 		this.department = department;
-	}
-//	@Override
-//	public String toString() {
-//		return "Status [statusId=" + statusId + ", comments=" + comments + ", details=" + details + ", createDate="
-//				+ createDate + ", userId=" + userId + ", complianceId=" + complianceId + ", department=" + department
-//				+ "]";
-//	}
-//	
+	}*/
+
 
 }
