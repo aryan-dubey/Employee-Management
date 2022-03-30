@@ -8,11 +8,11 @@
 		<version>2.6.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>in.codegram</groupId>
-	<artifactId>ppmtoolapi</artifactId>
+	<groupId>cg.camp</groupId>
+	<artifactId>employeemanagementapi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ppmtoolapi</name>
-	<description>Project Management Tool API</description>
+	<name>employeemanagementapi</name>
+	<description>Employee Management Tool API</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
