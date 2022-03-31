@@ -55,14 +55,14 @@ public class ComplianceController {
 		  return new ResponseEntity<Compliance>(compliance, HttpStatus.ACCEPTED);
 	  }
 	  
-	  @PostMapping("")
+	  @PostMapping("/statusreport")
 	  public ResponseEntity<?> addStatusReport(@RequestBody Status st )
 	  {
 		  Status sta=complianceService.createStatusReport(st);
 		  return new ResponseEntity<Status>(sta, HttpStatus.CREATED);
 	  }
 	  
-	  @GetMapping("/ListAll")
+	  @GetMapping("/liststatus")
 	  public Iterable<Status> showAllStatusReport()
 	  {
 		  return complianceService.getAllStatusReport();

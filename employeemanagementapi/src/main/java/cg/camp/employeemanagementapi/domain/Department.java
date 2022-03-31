@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class Department {
@@ -30,8 +32,7 @@ public class Department {
 		this.compliance = compliance;
 	}
 	
-	@OneToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
-	private Status status;
+	
 	
 	public Status getStatus() {
 		return status;
@@ -41,6 +42,12 @@ public class Department {
 	}	
 
  */
+	@OneToOne(fetch = FetchType.EAGER, mappedBy="department")
+	@JsonIgnore
+	private Status status;
+	@OneToOne(fetch = FetchType.EAGER, mappedBy="department")
+	@JsonIgnore
+	private Compliance compliance;
 
 	public Long getDeptId() {
 		return deptId;

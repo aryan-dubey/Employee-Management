@@ -24,4 +24,5 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
 		DepartmentNameExceptionResoponse errorMessage=new DepartmentNameExceptionResoponse(ex.getMessage());
 		return new ResponseEntity<Object>(errorMessage,HttpStatus.BAD_REQUEST); 
 	}
+	
 }

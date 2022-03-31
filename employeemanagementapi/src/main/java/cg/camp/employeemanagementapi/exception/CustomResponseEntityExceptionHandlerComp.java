@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @ControllerAdvice
 @RestController
-public class CustomResponseEntityExceptionHandler1 extends ResponseEntityExceptionHandler {
+public class CustomResponseEntityExceptionHandlerComp extends ResponseEntityExceptionHandler {
 
 	@ExceptionHandler
 	public final ResponseEntity<Object> handleComplianceIdException(ComplianceIdException ex, WebRequest request){
